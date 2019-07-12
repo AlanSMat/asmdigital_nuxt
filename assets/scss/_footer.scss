@@ -1,0 +1,155 @@
+.footer-blue {
+  text-align: center;
+  padding: 1px 0 1px 0;
+}
+
+.footer-border-sides {
+  @include contact-section-side-border(1px);
+  width: 100%;
+  @include respond(tab-land) {
+    @include contact-section-side-border(0);
+  }
+  @include respond(tab-port) {
+    @include contact-section-side-border(0);
+  }
+  @include respond(phone) {
+    @include contact-section-side-border(0);
+  }
+}
+
+.footer-cell {
+  width: 10em;
+}
+
+.footer-col-container {
+  width: 100%;
+}
+
+.footer-column {
+  width: 34%;
+  @include respond(phone) {
+    width: 100%;
+  }
+  @include respond(tab-port) {
+    width: 100%;
+  }
+  padding: 2em 0 2em 0;
+  align-self: flex-start !important;
+}
+
+.footer-container {
+  background-color: $color-grey-dark;
+  color: $color-grey-light;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.footer-heading {
+  color: $color-grey-light;
+  margin-bottom: 1.5rem;
+}
+
+.footer-links {
+  width: 22em;
+  margin: auto;
+  padding-left: 10px;
+}
+
+.footer-form-container {
+  width: 22em;
+  margin: auto;
+}
+
+.footer-form-row {
+  margin-bottom: 5px;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.footer-heading {
+  font-family: 'Dosis', sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.4em;
+  font-weight: 100;
+}
+
+.footer-heading::before {
+  box-sizing: border-box;
+  content: '';
+  position: relative;
+  top: 55%;
+  width: 50px;
+  height: 2px;
+  background: #ccc;
+}
+
+.footer-heading::after {
+  content: '';
+  margin-bottom: 5px;
+  color: #ccc;
+}
+
+.footer-icon {
+  padding: 0 20px 0 0;
+}
+
+.footer-form-icon-container {
+  padding: 10px;
+  background: #536f98;
+  color: #ccc;
+  min-width: 30px;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.footer-icon-container {
+  text-align: left;
+  width: 50px;
+}
+
+.footer-links {
+  width: 30%;
+  margin: auto;
+}
+
+.footer-input-field {
+  background-color: #212121;
+  border: 1px solid #ccc;
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links ul li a {
+  color: #ccc;
+}
+
+.footer-text-area {
+  height: 120px;
+}
+
+.menu-icon {
+  display: none;
+}
+
+.spacer {
+  width: 60%;
+  display: block;
+  height: 1px;
+  background-color: #ccc;
+  margin: 15px 0 15px 0;
+  text-align: center;
+  margin: 10px 0 10px 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-blue {
+  background-color: #536f98;
+  color: #ccc;
+}
