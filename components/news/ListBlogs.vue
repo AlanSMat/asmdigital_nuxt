@@ -1,16 +1,16 @@
 <template>
   <div>
-    <div class="loading" v-if="loading">
-      <div></div>
+    <div class="loader" v-if="loading">
+      <div class="loading"></div>
     </div>
     <div v-if="!loading">
       <global-page-title pageTitle="News"></global-page-title>
-      <div class="blog-container">
-        <div>
-          <blog-snippet :key="blog.arrIndex" :blog="blog" v-for="blog in blogs" class="list-blogs" />
+      <div class="blog-flex-container">
+        <div class="blog-left-container">
+          <blog-snippet :key="blog.arrIndex" :blog="blog" v-for="blog in blogs" />
         </div>
-        <div class="col-md-3">
-          <div class="sidebar">
+        <div class="blog-right-container br-5">
+          <div class="sidebar br-15">
             <global-page-sub-title pageSubTitle="Recent Posts" />
             <p
               :key="blog.arrIndex"
@@ -123,17 +123,33 @@ export default {
 
 <style scope lang="scss">
 @import '@/assets/scss/main.scss';
+@import '@/assets/scss/_loader.scss';
 
-.blog-container {
+@include respond('big-desktop') {
+  .blog-flex-container {
+    width: 112rem;
+    margin: auto;
+  }
+}
+
+.blog-flex-container {
   display: flex;
-  padding-left: 5px;
+  justify-content: space-evenly;
+}
+
+// blog-container flex column left
+.blog-left-container {
+  width: 65%;
+}
+
+.blog-right-container {
+  width: 30%;
 }
 
 .list-blogs {
-  border-bottom: 1px solid $color-grey-light;
   padding-top: 30px;
 }
-.list-blogs:first-child {
+.list-blogs {
   padding-top: 0px;
 }
 
@@ -142,36 +158,55 @@ export default {
   padding-bottom: 3rem;
 }
 
-.loading {
+.loader {
   height: 90vh;
 }
 
 .sidebar {
+  background-color: #fff;
 }
 
-@keyframes lds-roller {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+.sidebar-blog-headings {
+  font-family: 'Dosis', 'Poppins', sans-serif;
 }
 
 @include respond('tab-land') {
   .blog-container {
-    padding-left: 2px;
+    /* padding-left: 2px; */
   }
 }
 @include respond('tab-port') {
-  .blog-container {
-    padding-left: 0px;
+  .blog-flex-container {
+    display: flex;
+    justify-content: flex-end;
     flex-direction: column;
-    justify-content: center;
   }
-  .col-md-3 {
-    margin: auto;
-    width: 50% !important;
+
+  .blog-left-container {
+    align-self: center;
+    width: 90%;
+  }
+
+  .blog-right-container {
+    align-self: center;
+    width: 50%;
+  }
+}
+@include respond('phone') {
+  .blog-flex-container {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+  }
+
+  .blog-left-container {
+    align-self: center;
+    width: 90%;
+  }
+
+  .blog-right-container {
+    align-self: center;
+    width: 90%;
   }
 }
 </style>

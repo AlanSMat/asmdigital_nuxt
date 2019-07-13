@@ -37,6 +37,7 @@ body {
   color: #212529;
   text-align: left;
   background-color: #fff;
+  background-image: url('~assets/imgs/background-dust.png');
 }
 
 h1,
@@ -200,10 +201,6 @@ img[class] {
   font-size: 2rem;
 }
 
-img {
-  display: block;
-}
-
 //********************** template styles *************************
 .layer-wrapper {
   position: relative;
@@ -294,10 +291,6 @@ img {
 .list:nth-last-child(1) {
   padding-bottom: 0;
   border-bottom: 0;
-}
-
-img {
-  border-radius: 3px;
 }
 
 .list-img img {

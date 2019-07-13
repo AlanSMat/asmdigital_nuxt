@@ -1,10 +1,12 @@
 <template>
   <div class="layer-wrapper">
     <div class="layer-ttl ptb-20">
-      <h4>
-        {{ pageTitle }}
-        <span class="text-primary"></span>
-      </h4>
+      <span class="page-title-wrapper">
+        <h4>
+          {{ pageTitle }}
+          <span class="text-primary"></span>
+        </h4>
+      </span>
     </div>
   </div>
 </template>
@@ -20,5 +22,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scope>
+.page-title-wrapper {
+}
 </style>
+ 
