@@ -10,13 +10,6 @@ import SingleBlog from '@/components/news/SingleBlog.vue'
 export default {
   components: {
     'single-blog': SingleBlog
-  },
-  mounted() {
-    this.$nextTick(() => {
-      this.$nuxt.$loading.start()
-
-      setTimeout(() => this.$nuxt.$loading.finish(), 500)
-    })
   }
 }
 </script>

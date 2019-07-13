@@ -7,7 +7,12 @@
       <global-page-title pageTitle="News"></global-page-title>
       <div class="blog-flex-container">
         <div class="blog-left-container">
-          <blog-snippet :key="blog.arrIndex" :blog="blog" v-for="blog in blogs" />
+          <blog-snippet
+            :key="blog.arrIndex"
+            :blog="blog"
+            :blogCategories="blogCategories"
+            v-for="blog in blogs"
+          />
         </div>
         <div class="blog-right-container br-5">
           <div class="sidebar br-15">
@@ -88,7 +93,7 @@ export default {
     return {
       limit: 10,
       blogs: [],
-      categories: [],
+      blogCategories: [],
       search: '',
       blogId: 0,
       loading: false
@@ -101,20 +106,53 @@ export default {
         `https://asmather.com/wp/wp-json/wp/v2/blogs?_embed`,
         (this.loading = true)
       )
-      .then(res => {
-        let data = []
-        res.data.map((item, i) => {
-          res.data[i].arrIndex = i
-          res.data[i].title = item.title.rendered
-          res.data[i].content = item.content.rendered
-          res.data[i].excerpt = item.excerpt.rendered
-          res.data[i].imageUrl =
-            item._embedded['wp:featuredmedia'][0].source_url
-          res.data[i].postedDate = item.date
-          res.data[i].from = item.acf.from
+      .then(blogRes => {
+        blogRes.data.map((item, i) => {
+          this.blogs.push({
+            arrIndex: i,
+            title: item.title.rendered,
+            content: item.content.rendered,
+            excerpt: item.excerpt.rendered,
+            imageUrl: item._embedded['wp:featuredmedia'][0].source_url,
+            postedDate: item.date,
+            from: item.acf.from
+          })
+
+          if (blogRes.data[i].categories.length !== 0) {
+            //   blogRes.data[i].categories.map((itemId, index) => {
+            //     axios
+            //       .get(
+            //         `https://asmather.com/wp/wp-json/wp/v2/categories/${itemId}`
+            //       )
+            //       .then(catRes => {
+            //         this.blogCategories.push({
+            //           id: catRes.data.id,
+            //           name: catRes.data.name
+            //         })
+            //       })
+            //   })
+          }
+          //console.log(blogRes.data[i].categories)
         })
-        this.blogs = res.data
-        localStorage.setItem('blogs', JSON.stringify(this.blogs))
+        console.log(this.blogs)
+
+        //console.log(this.blogs)
+        //console.log(this.blogCategories)
+
+        // get categorie list
+        // if (this.blogs.categories.length !== 0) {
+        //   this.blogs.categories.map(itemId => {
+        //     axios
+        //       .get(`https://asmather.com/wp/wp-json/wp/v2/categories/${itemId}`)
+        //       .then(res => {
+        //         this.categories.push({
+        //           id: res.data.id,
+        //           name: res.data.name
+        //         })
+        //       })
+        //   })
+        // }
+        //localStorage.setItem('blogs', JSON.stringify(this.blogs))
         this.loading = false
       })
   }
