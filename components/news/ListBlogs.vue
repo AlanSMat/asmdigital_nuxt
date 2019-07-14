@@ -25,7 +25,7 @@
             <global-page-sub-title pageSubTitle="Categories" class="pt-4" />
             <ul class="category-list">
               <li>
-                <a href="#">
+                <a href="#"></a>
                   <i class="fa fa-newspaper-o"></i>News
                 </a>
                 <span>(10)</span>
@@ -84,6 +84,8 @@
 import axios from 'axios'
 import BlogSnippet from '@/components/news/BlogSnippet'
 import { setTimeout } from 'timers'
+import { constants } from 'crypto'
+import { async } from 'q'
 
 export default {
   components: {
@@ -107,52 +109,46 @@ export default {
         (this.loading = true)
       )
       .then(blogRes => {
-        blogRes.data.map((item, i) => {
+        let cr = new Array()
+        blogRes.data.map(async (item, blogIndex) => {
           this.blogs.push({
-            arrIndex: i,
+            arrIndex: blogIndex,
             title: item.title.rendered,
             content: item.content.rendered,
             excerpt: item.excerpt.rendered,
             imageUrl: item._embedded['wp:featuredmedia'][0].source_url,
             postedDate: item.date,
+            categories: blogRes.data[blogIndex].categories,
             from: item.acf.from
           })
-
-          if (blogRes.data[i].categories.length !== 0) {
-            //   blogRes.data[i].categories.map((itemId, index) => {
-            //     axios
-            //       .get(
-            //         `https://asmather.com/wp/wp-json/wp/v2/categories/${itemId}`
-            //       )
-            //       .then(catRes => {
-            //         this.blogCategories.push({
-            //           id: catRes.data.id,
-            //           name: catRes.data.name
-            //         })
-            //       })
-            //   })
-          }
           //console.log(blogRes.data[i].categories)
-        })
-        console.log(this.blogs)
-
-        //console.log(this.blogs)
-        //console.log(this.blogCategories)
-
-        // get categorie list
-        // if (this.blogs.categories.length !== 0) {
-        //   this.blogs.categories.map(itemId => {
-        //     axios
-        //       .get(`https://asmather.com/wp/wp-json/wp/v2/categories/${itemId}`)
-        //       .then(res => {
-        //         this.categories.push({
-        //           id: res.data.id,
-        //           name: res.data.name
-        //         })
-        //       })
-        //   })
-        // }
-        //localStorage.setItem('blogs', JSON.stringify(this.blogs))
+          //console.log(blogRes.data[i].categories)
+          if (blogRes.data[blogIndex].categories.length !== 0) {
+            // blogRes.data[blogIndex].categories.map(
+            //   async (categoryId, categoryIndex) => {
+            //     await axios.get(
+            //       `https://asmather.com/wp/wp-json/wp/v2/categories/${categoryId}`
+            //     )
+            //     console.log(blogIndex)
+            //   }
+            // )
+            for (
+              let i = 0;
+              i < blogRes.data[blogIndex].categories.length;
+              i++
+            ) {
+              let categoryId = blogRes.data[blogIndex].categories[i]
+              await axios.get(
+                `https://asmather.com/wp/wp-json/wp/v2/categories/${categoryId}`
+              )
+              console.log(blogIndex)
+              // .then(res => {
+              //   console.log(res)
+              // })
+            }
+            //console.log(blogIndex)
+          }
+        }) // end blog loop
         this.loading = false
       })
   }
@@ -194,10 +190,6 @@ export default {
 .list-blogs:last-child {
   border-bottom: 0px solid $color-grey-light;
   padding-bottom: 3rem;
-}
-
-.loader {
-  height: 90vh;
 }
 
 .sidebar {
