@@ -25,7 +25,7 @@
             <global-page-sub-title pageSubTitle="Categories" class="pt-4" />
             <ul class="category-list">
               <li>
-                <a href="#"></a>
+                <a href="#">
                   <i class="fa fa-newspaper-o"></i>News
                 </a>
                 <span>(10)</span>
@@ -98,18 +98,23 @@ export default {
       blogCategories: [],
       search: '',
       blogId: 0,
-      loading: false
+      loading: false,
+      categories: []
+    }
+  },
+  methods: {
+    refineCategoryArray(catArray) {
+      console.log(catArray)
     }
   },
   created() {
-    //https://asmather.com/wp/wp-json/wp/v2/categories/50
+    let cr = new Array()
     axios
       .get(
         `https://asmather.com/wp/wp-json/wp/v2/blogs?_embed`,
         (this.loading = true)
       )
       .then(blogRes => {
-        let cr = new Array()
         blogRes.data.map(async (item, blogIndex) => {
           this.blogs.push({
             arrIndex: blogIndex,
@@ -121,34 +126,29 @@ export default {
             categories: blogRes.data[blogIndex].categories,
             from: item.acf.from
           })
-          //console.log(blogRes.data[i].categories)
-          //console.log(blogRes.data[i].categories)
           if (blogRes.data[blogIndex].categories.length !== 0) {
-            // blogRes.data[blogIndex].categories.map(
-            //   async (categoryId, categoryIndex) => {
-            //     await axios.get(
-            //       `https://asmather.com/wp/wp-json/wp/v2/categories/${categoryId}`
-            //     )
-            //     console.log(blogIndex)
-            //   }
-            // )
             for (
               let i = 0;
               i < blogRes.data[blogIndex].categories.length;
               i++
             ) {
               let categoryId = blogRes.data[blogIndex].categories[i]
-              await axios.get(
-                `https://asmather.com/wp/wp-json/wp/v2/categories/${categoryId}`
-              )
-              console.log(blogIndex)
-              // .then(res => {
-              //   console.log(res)
-              // })
-            }
-            //console.log(blogIndex)
+              await axios
+                .get(
+                  `https://asmather.com/wp/wp-json/wp/v2/categories/${categoryId}`
+                )
+                .then(res => {
+                  this.blogCategories.push({
+                    id: res.data.id,
+                    blogTitle: blogRes.data[blogIndex].title.rendered,
+                    blogArrIndex: blogIndex,
+                    name: res.data.name
+                  })
+                })
+            } // end for loop
           }
         }) // end blog loop
+        this.refineCategoryArray(this.blogCategories)
         this.loading = false
       })
   }
