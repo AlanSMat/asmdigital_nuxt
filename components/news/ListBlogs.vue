@@ -93,9 +93,7 @@ export default {
   },
   methods: {},
   created() {
-    let cr = new Array()
     // get all categories
-    //https://asmather.com/wp/wp-json/wp/v2/categories
     axios
       .get(
         `https://asmather.com/wp/wp-json/wp/v2/blogs?_embed`,
@@ -113,27 +111,6 @@ export default {
             categories: blogRes.data[blogIndex].categories,
             from: item.acf.from
           })
-          // if (blogRes.data[blogIndex].categories.length !== 0) {
-          //   for (
-          //     let i = 0;
-          //     i < blogRes.data[blogIndex].categories.length;
-          //     i++
-          //   ) {
-          //     let categoryId = blogRes.data[blogIndex].categories[i]
-          //     await axios
-          //       .get(
-          //         `https://asmather.com/wp/wp-json/wp/v2/categories/${categoryId}`
-          //       )
-          //       .then(res => {
-          //         this.blogCategories.push({
-          //           id: res.data.id,
-          //           blogTitle: blogRes.data[blogIndex].title.rendered,
-          //           blogArrIndex: blogIndex,
-          //           name: res.data.name
-          //         })
-          //       })
-          //   } // end for loop
-          // }
         }) // end blog loop
         this.loading = false
       })

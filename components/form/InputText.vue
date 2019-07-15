@@ -10,6 +10,8 @@
       class="mdl-textfield__input"
     />
     <label :id="labelId" class="mdl-textfield__label" v-if="LabelName" for="name">{{ LabelName }}</label>
+    <!-- conditional css class binding -->
+    <!-- <div :class="[show ? blurClass : '' ;]"></div> -->
   </div>
 </template>
 
@@ -42,7 +44,6 @@ export default {
   },
   methods: {
     swapLabel() {
-      //if (document.getElementById(this.Id).focus()) {
       const labelElement = document.getElementById(this.labelId)
       const inputElement = document.getElementById(this.id)
       if (labelElement.className === this.labelClass) {

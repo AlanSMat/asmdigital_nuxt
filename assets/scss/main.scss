@@ -705,6 +705,7 @@ img[class] {
   bottom: 0;
   color: $color-grey-dark;
   font-size: 16px;
+  transition: font-size 0.3s;
   left: 0;
   right: 0;
   pointer-events: none;
@@ -720,6 +721,7 @@ img[class] {
   bottom: 0;
   color: $color-grey-dark;
   font-size: 12px;
+  transition: font-size 0.3s;
   left: 0;
   right: 0;
   pointer-events: none;
@@ -730,4 +732,18 @@ img[class] {
   overflow: hidden;
   white-space: nowrap;
   text-align: left;
+}
+
+/*************************************************
+[ TRANSITIONS CSS START ] *******************************
+**************************************************/
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.5s;
+}
+
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+  transform: scale(0);
 }
