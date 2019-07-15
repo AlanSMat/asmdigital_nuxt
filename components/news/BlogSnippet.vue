@@ -11,7 +11,7 @@
         <credits class="post-credits" :postedDate="blog.postedDate" :from="blog.from"></credits>
       </div>
       <p class="description" v-html="blog.excerpt"></p>
-      <!-- <categories :categories="blogCategories" class="pt-2" /> -->
+      <categories :categories="categories" class="pt-2" />
       <nuxt-link :to="`/news/${blog.arrIndex}`" class="link-icon mt-3 ml-2">
         <span>View More</span>
         <i class="ti-angle-double-right pt-1"></i>
@@ -35,34 +35,33 @@ export default {
       type: Object,
       required: true
     },
-    blogCategories: {
+    categoryIds: {
       type: Array,
       required: false
     }
   },
   data() {
-    //console.log(this.blogCategories)
-
     return {
-      categories: this.blogCategories,
+      categories: [],
       excerpt: this.blog.excerpt
       //cat: JSON.parse(localStorage.getItem('categories'))
     }
   },
   created() {
-    //https://asmather.com/wp/wp-json/wp/v2/categories/50
-    // if (this.blog.categories.length !== 0) {
-    //   this.blog.categories.map(itemId => {
-    //     axios
-    //       .get(`https://asmather.com/wp/wp-json/wp/v2/categories/${itemId}`)
-    //       .then(res => {
-    //         this.categories.push({
-    //           id: res.data.id,
-    //           name: res.data.name
-    //         })
-    //       })
-    //   })
-    // }
+    //asmather.com/wp/wp-json/wp/v2/categories/50
+    https: if (this.blog.categories.length !== 0) {
+      this.blog.categories.map(itemId => {
+        axios
+          .get(`https://asmather.com/wp/wp-json/wp/v2/categories/${itemId}`)
+          .then(res => {
+            this.categories.push({
+              id: res.data.id,
+              name: res.data.name
+            })
+          })
+      })
+    }
+    //console.log(this.)
   }
 }
 </script>

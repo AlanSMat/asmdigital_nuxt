@@ -27,8 +27,8 @@ export default {
    ** Global CSS
    */
   css: [
+    '@/assets/scss/main.scss',
     '@/assets/css/normalize.css',
-    '@/assets/css/bootstrap.css',
     '@/assets/scss/main.scss',
     '@/assets/icons/font-awesome/css/fontawesome-all.min.css',
     '@/assets/icons/simple-line-icons/css/simple-line-icons.min.css',

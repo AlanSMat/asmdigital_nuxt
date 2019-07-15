@@ -32,3 +32,34 @@ $default-font-size: 1.6rem;
 $grid-width: 114rem;
 $gutter-vertical: 8rem;
 $gutter-horizontal: 4rem;
+
+$color-secondary-rgba-60: rgba(238, 238, 238, 0.6);
+
+// Color Code
+$colorF: #fff;
+$colorE: #eee;
+$colorC: #ccc;
+$colorD: #ddd;
+$colorA: #aaa;
+$color9: #999;
+$color7: #777;
+$color5: #555;
+$color3: #333;
+
+$color-primary: $color-blue-primary;
+$color-secondary: $color-blue-light;
+$color-success: green;
+$color-warning: orange;
+$color-danger: red;
+$color-info: aqua;
+$color-dark: black;
+$color-light: #ccc;
+$color-blue: blue;
+$color-orange: orange;
+$color-purple: purple;
+$color-red: red;
+$color-default: $color-grey-dark;
+
+//Font-Faimily
+$font: 'Poppins', sans-serif;
+$fontHeading: 'Dosis', 'Poppins', sans-serif;

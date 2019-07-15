@@ -22,11 +22,7 @@
         </div>
         <!-- buttons -->
         <div id="single-blog-button-container">
-          <span class="u-button-container-margin-right-sml">
-            <nuxt-link to="/news">
-              <button class="btn u-box-shadow">Back</button>
-            </nuxt-link>
-          </span>
+          <g-button title="Back" route="/news" />
         </div>
       </div>
     </div>
@@ -98,7 +94,7 @@ h2 {
 }
 
 #single-blog-button-container {
-  margin-top: 1rem;
+  margin: 1rem 0;
 }
 #single-blog {
   max-width: 960px;

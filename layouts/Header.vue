@@ -8,7 +8,7 @@
           </div>
           <div class="logo-text reverse-out-font-barlow">ASM DIGITAL</div>
         </div>
-        <div class="header-nav">
+        <div class="header-nav pr-5">
           <div class="header-nav-item">
             <nuxt-link to="/">Home</nuxt-link>
             <span></span>
@@ -26,7 +26,7 @@
             <span></span>
           </div>
           <div class="header-nav-item">
-            <a href="https://asmdigital.com.au/dist/site/contact/">Contact</a>
+            <nuxt-link to="/contact">Contact</nuxt-link>
             <span></span>
           </div>
         </div>

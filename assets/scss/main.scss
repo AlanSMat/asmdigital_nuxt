@@ -10,7 +10,8 @@
 @import '_media';
 @import '_variables';
 @import '_utilities';
-@import '_formElements';
+@import '_buttons';
+@import '_form';
 @import '_footer';
 @import '_header';
 @import '_animations';
@@ -619,4 +620,114 @@ img[class] {
 }
 .loader {
   height: 90vh;
+}
+
+/*************************************************
+[ BUTTON CSS START ] *******************************
+**************************************************/
+
+// .btn {
+//   height: auto;
+//   line-height: normal;
+//   padding: 10px 20px;
+//   font-weight: 400;
+//   color: #fff;
+//   font-size: 14px;
+//   font-family: 'Poppins', sans-serif;
+//   border-radius: 2px;
+//   cursor: pointer;
+// }
+// .btn-outline.btn-default,
+// .btn-outline.btn-info {
+//   color: #555;
+//   background-color: #fff;
+// }
+// .btn-outline.btn-default:hover,
+// .btn-outline.btn-info:hover {
+//   color: #333;
+//   background-color: $color-grey-light;
+// }
+// .btn-pill {
+//   border-radius: 10px;
+//   border: 1px solid $color-grey-light;
+// }
+
+/*************************************************
+[ FLEX CSS START ] *******************************
+**************************************************/
+
+.container-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container-flex__center {
+  justify-content: center;
+}
+
+/*************************************************
+[ FORM FIELDS CSS START ] *******************************
+**************************************************/
+
+.mdl-textfield {
+  position: relative;
+  font-size: 16px;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 40rem;
+  max-width: 100%;
+  margin: 0;
+  padding: 2rem 0;
+  @include respond('tab-land') {
+    width: 35rem;
+  }
+  @include respond('tab-port') {
+    width: 45rem;
+  }
+  @include respond('phone') {
+    width: 25rem;
+  }
+}
+.mdl-textfield__input {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  display: block;
+  font-size: 16px;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  margin: 0;
+  padding: 4px 0;
+  width: 100%;
+  background: 0 0;
+  text-align: left;
+  color: inherit;
+}
+.mdl-textfield__label {
+  bottom: 0;
+  color: $color-grey-dark;
+  font-size: 16px;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  position: absolute;
+  display: block;
+  top: 22px;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: left;
+}
+.mdl-textfield__alt-label {
+  bottom: 0;
+  color: $color-grey-dark;
+  font-size: 12px;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  position: absolute;
+  display: block;
+  top: 0px;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: left;
 }
