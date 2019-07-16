@@ -6,7 +6,11 @@
       </nuxt-link>
     </div>
     <div v-if="!route">
-      <button class="btn btn-outline btn-default btn-pill btn-outline-1x m-1">{{title}}</button>
+      <button
+        id="id"
+        @click="clickedBtn"
+        class="btn btn-outline btn-default btn-pill btn-outline-1x m-1"
+      >{{title}}</button>
     </div>
   </div>
 </template>
@@ -18,6 +22,10 @@ export default {
       type: String,
       required: true
     },
+    id: {
+      type: String,
+      required: false
+    },
     route: {
       type: String,
       required: false
@@ -25,7 +33,25 @@ export default {
     link: {
       type: String,
       required: false
+    },
+    link: {
+      type: Boolean,
+      required: false
     }
+  },
+  data() {
+    return {
+      value: 'I am a child'
+    }
+  },
+  methods: {
+    clickedBtn(e) {
+      //console.log('clicked')
+      this.$emit('clickedBtn', e)
+    }
+  },
+  mounted() {
+    //this.$emit(this.value)
   }
 }
 </script>

@@ -12,29 +12,48 @@
           We gaurantee that all mail received will be treated as strictly confidential and your details will never be
           shared with any other organisation.
         </p>
-        <!-- <contact-form></contact-form> -->
-        <div class="contact-form-container mt-5 pt-5 pb-5 mb-5 bg-color-white br-15">
-          <div class="contact-row container-flex container-flex__center">
-            <div class="contact-cell">
-              <g-input-text name="name" id="name" LabelName="Your Name" />
+        <div class="contact-form-container">
+          <form id="contactForm" action="/" @submit="checkForm" method="post">
+            <input type="hidden" name="form-name" value="contact" />
+            <div class="contact-row container-flex container-flex__center">
+              <div class="contact-cell">
+                <g-input-text
+                  name="contactName"
+                  id="contactName"
+                  @textLength="textLength($event)"
+                  LabelName="Your Name"
+                />
+              </div>
+              <div class="contact-cell">
+                <g-input-text name="contactEmail" id="contactEmail" LabelName="Your Email Address" />
+              </div>
             </div>
-            <div class="contact-cell">
-              <g-input-text name="email" id="email" LabelName="Your Email Address" />
+            <div class="contact-row container-flex container-flex__center">
+              <div class="contact-cell">
+                <g-input-text name="contactPhone" id="contactPhone" LabelName="Your Phone Number" />
+              </div>
+              <div class="contact-cell">
+                <g-input-text name="subject" id="contactSubject" LabelName="Your Subject" />
+              </div>
             </div>
-          </div>
-          <div class="contact-row container-flex container-flex__center">
-            <div class="contact-cell">
-              <g-input-text name="phone" id="phone" LabelName="Your Phone Number" />
+            <div class="contact-row container-flex container-flex__center">
+              <div>
+                <g-text-area
+                  rows="5"
+                  cols="5"
+                  name="contactMessage"
+                  id="contactMessage"
+                  LabelName="Your Message"
+                />
+              </div>
             </div>
-            <div class="contact-cell">
-              <g-input-text name="subject" id="subject" LabelName="Your Subject" />
+            <div class="contact-row container-flex container-flex__center pb-5">
+              <div>
+                <!-- @clickedBtn is a method in the child component -->
+                <g-button title="Submit" @clickedBtn="checkForm($event)" />
+              </div>
             </div>
-          </div>
-          <div class="contact-row container-flex container-flex__center">
-            <div>
-              <g-text-area rows="5" cols="5" />
-            </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
@@ -42,13 +61,111 @@
 </template>
 
 <script>
-import ContactForm from '../components/ContactForm.vue'
-
 export default {
-  components: {
-    'contact-form': ContactForm
+  data() {
+    return {
+      formData: [
+        {
+          id: 'contactName',
+          validType: 'text',
+          value: null
+        },
+        {
+          id: 'contactPhone',
+          validType: 'phone',
+          value: null
+        },
+        {
+          id: 'contactEmail',
+          validType: 'email',
+          value: null
+        },
+        {
+          id: 'contactMessage',
+          validType: 'text',
+          value: null
+        }
+      ],
+      submitForm: false
+    }
   },
-  name: 'Contact'
+  methods: {
+    textLength(value) {
+      if (value.length < 2) {
+        return false
+      }
+      return true
+    },
+    validPhone(phone) {
+      var re = /^(\+?\d{3}[-. ]?)?(\(?\d{1,2}\)?)?[-. ]?\d{3,4}[-. ]?\d{3,4}[-. ]?(\d{3}[-. ]?)?$/
+      return re.test(phone)
+    },
+    validEmail: function(email) {
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      return re.test(email)
+    },
+    checkForm(submitBtnClicked) {
+      let submitForm = true
+      this.formData.forEach(arrayItem => {
+        let elmToValidate = document.getElementById(arrayItem.id)
+        //elmToValidate.classList.remove('invalid')
+        // switch (arrayItem.validType) {
+        //   case 'text':
+        //     if (!this.textLength(elmToValidate.value)) {
+        //       //elmToValidate.classList.add("invalid");
+        //       submitForm = false
+        //     }
+        //     break
+        //   case 'phone':
+        //     if (!this.validPhone(elmToValidate.value)) {
+        //       //elmToValidate.classList.add("invalid");
+        //       submitForm = false
+        //     }
+        //     break
+        //   case 'email':
+        //     if (!this.validEmail(elmToValidate.value)) {
+        //       //elmToValidate.classList.add("invalid");
+        //       submitForm = false
+        //     }
+        //     break
+        // }
+        //copy value into the data array object
+        arrayItem.value = elmToValidate.value
+      })
+      if (!submitForm) {
+        submitBtnClicked.preventDefault()
+      }
+      return true
+    },
+    postNow: function() {
+      let fname = this.formData.id
+
+      const json = {
+        fname: this.formData[0].value
+      }
+
+      let jsonData = {
+        name: 'Name',
+        value: 'Steve'
+      }
+
+      let fd = jsonData
+      console.log(fd)
+
+      axios
+        .post(
+          'https://www.asmdigital.com.au/dist/site/thanks/',
+          //"https://getsimpleform.com/messages?form_api_token=7a1e4a709c165188640f11a8fbb1519c",
+          JSON.stringify(fd),
+          {
+            headers: {
+              'Content-type': 'application/x-www-form-urlencoded'
+            }
+          }
+        )
+        .then(r => console.log('r: ', JSON.stringify(r, null, 2)))
+    }
+  }
 }
 </script>
 <style lang="scss" scope>
@@ -56,6 +173,9 @@ export default {
 
 .contact-form-container {
   background-color: #fff;
+  padding: 5px 0;
+  margin: 15px 0;
+  border-radius: 15px;
 }
 
 .contact-row {

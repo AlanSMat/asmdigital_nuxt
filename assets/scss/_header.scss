@@ -1,5 +1,5 @@
 header {
-  background-color: #536f98;
+  background-color: $color-blue-primary;
   padding: 0px 10px;
 }
 
@@ -9,7 +9,11 @@ header {
   align-items: center;
 }
 
-.logo-squaresimg {
+.logo-squares {
+  padding: 10px 0 10px 0px;
+}
+
+.logo-squares img {
   display: block;
 }
 
@@ -20,10 +24,6 @@ header {
 .reverse-out-font-barlow {
   font-family: Barlow, sans-serif;
   color: #ccc;
-}
-
-.logo-squares {
-  padding: 10px 0 10px 0px;
 }
 
 .logo-text {

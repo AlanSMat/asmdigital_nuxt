@@ -43,6 +43,7 @@ export default {
     }
   },
   methods: {
+    // moves the elements label up when the element is focused and back down on blur
     swapLabel() {
       const labelElement = document.getElementById(this.labelId)
       const inputElement = document.getElementById(this.id)

@@ -70,6 +70,7 @@ export default {
   },
 
   build: {
+    vendor: ['axios'],
     /*
      ** You can extend webpack config here
      */
