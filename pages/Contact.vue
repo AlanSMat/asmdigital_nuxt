@@ -13,16 +13,16 @@
           shared with any other organisation.
         </p>
         <div class="contact-form-container">
-          <form id="contactForm" action="/" @submit="checkForm" method="post">
+          <form
+            id="contactForm"
+            action="https://getsimpleform.com/messages?api_token=7a1e4a709c165188640f11a8fbb1519c"
+            @submit="checkForm"
+            method="post"
+          >
             <input type="hidden" name="form-name" value="contact" />
             <div class="contact-row container-flex container-flex__center">
               <div class="contact-cell">
-                <g-input-text
-                  name="contactName"
-                  id="contactName"
-                  @textLength="textLength($event)"
-                  LabelName="Your Name"
-                />
+                <g-input-text name="contactName" id="contactName" LabelName="Your Name" />
               </div>
               <div class="contact-cell">
                 <g-input-text name="contactEmail" id="contactEmail" LabelName="Your Email Address" />
@@ -61,6 +61,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data() {
     return {
@@ -90,6 +91,9 @@ export default {
     }
   },
   methods: {
+    valid(event) {
+      console.log(event)
+    },
     textLength(value) {
       if (value.length < 2) {
         return false
@@ -108,62 +112,57 @@ export default {
       let submitForm = true
       this.formData.forEach(arrayItem => {
         let elmToValidate = document.getElementById(arrayItem.id)
-        //elmToValidate.classList.remove('invalid')
-        // switch (arrayItem.validType) {
-        //   case 'text':
-        //     if (!this.textLength(elmToValidate.value)) {
-        //       //elmToValidate.classList.add("invalid");
-        //       submitForm = false
-        //     }
-        //     break
-        //   case 'phone':
-        //     if (!this.validPhone(elmToValidate.value)) {
-        //       //elmToValidate.classList.add("invalid");
-        //       submitForm = false
-        //     }
-        //     break
-        //   case 'email':
-        //     if (!this.validEmail(elmToValidate.value)) {
-        //       //elmToValidate.classList.add("invalid");
-        //       submitForm = false
-        //     }
-        //     break
-        // }
+        elmToValidate.classList.remove('invalid')
+        switch (arrayItem.validType) {
+          case 'text':
+            if (!this.textLength(elmToValidate.value)) {
+              elmToValidate.classList.add('invalid')
+              //submitForm = false
+            }
+            break
+          case 'phone':
+            if (!this.validPhone(elmToValidate.value)) {
+              elmToValidate.classList.add('invalid')
+              //submitForm = false
+            }
+            break
+          case 'email':
+            if (!this.validEmail(elmToValidate.value)) {
+              elmToValidate.classList.add('invalid')
+              //submitForm = false
+            }
+            break
+        }
         //copy value into the data array object
         arrayItem.value = elmToValidate.value
       })
-      if (!submitForm) {
+      if (submitForm) {
         submitBtnClicked.preventDefault()
       }
       return true
     },
-    postNow: function() {
-      let fname = this.formData.id
-
-      const json = {
-        fname: this.formData[0].value
-      }
-
+    postNow() {
       let jsonData = {
         name: 'Name',
         value: 'Steve'
       }
 
       let fd = jsonData
-      console.log(fd)
 
       axios
         .post(
-          'https://www.asmdigital.com.au/dist/site/thanks/',
-          //"https://getsimpleform.com/messages?form_api_token=7a1e4a709c165188640f11a8fbb1519c",
-          JSON.stringify(fd),
+          //'https://www.asmdigital.com.au/dist/site/thanks/',
+          'https://getsimpleform.com/messages/ajax?form_api_token=7a1e4a709c165188640f11a8fbb1519c',
+          fd,
           {
-            headers: {
-              'Content-type': 'application/x-www-form-urlencoded'
-            }
+            // headers: {
+            //   'Content-type': 'application/x-www-form-urlencoded'
+            // }
           }
         )
-        .then(r => console.log('r: ', JSON.stringify(r, null, 2)))
+        .then(() => {
+          console.log('sent')
+        })
     }
   }
 }
@@ -183,5 +182,9 @@ export default {
 
 .contact-cell {
   margin: 0 1.5rem;
+}
+
+.invalid {
+  border: 1px solid red;
 }
 </style>

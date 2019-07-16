@@ -46,7 +46,6 @@ export default {
   },
   methods: {
     clickedBtn(e) {
-      //console.log('clicked')
       this.$emit('clickedBtn', e)
     }
   },
