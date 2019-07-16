@@ -13,13 +13,7 @@
           shared with any other organisation.
         </p>
         <div class="contact-form-container">
-          <form
-            id="contactForm"
-            action="https://getsimpleform.com/messages?api_token=7a1e4a709c165188640f11a8fbb1519c"
-            @submit="checkForm"
-            method="POST"
-            data-netlify="true"
-          >
+          <form id="contactForm" action="/" @submit="checkForm" method="POST" data-netlify="true">
             <input type="hidden" name="form-name" value="contact" />
             <div class="contact-row container-flex container-flex__center">
               <div class="contact-cell">
@@ -48,7 +42,7 @@
                 />
               </div>
             </div>
-            <div class="contact-row container-flex container-flex__center">
+            <div class="contact-row container-flex container-flex__center pb-5">
               <div data-netlify-recaptcha="true"></div>
             </div>
             <div class="contact-row container-flex container-flex__center pb-5">
