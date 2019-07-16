@@ -17,7 +17,8 @@
             id="contactForm"
             action="https://getsimpleform.com/messages?api_token=7a1e4a709c165188640f11a8fbb1519c"
             @submit="checkForm"
-            method="post"
+            method="POST"
+            data-netlify="true"
           >
             <input type="hidden" name="form-name" value="contact" />
             <div class="contact-row container-flex container-flex__center">
@@ -46,6 +47,9 @@
                   LabelName="Your Message"
                 />
               </div>
+            </div>
+            <div class="contact-row container-flex container-flex__center">
+              <div data-netlify-recaptcha="true"></div>
             </div>
             <div class="contact-row container-flex container-flex__center pb-5">
               <div>
@@ -117,26 +121,26 @@ export default {
           case 'text':
             if (!this.textLength(elmToValidate.value)) {
               elmToValidate.classList.add('invalid')
-              //submitForm = false
+              submitForm = false
             }
             break
           case 'phone':
             if (!this.validPhone(elmToValidate.value)) {
               elmToValidate.classList.add('invalid')
-              //submitForm = false
+              submitForm = false
             }
             break
           case 'email':
             if (!this.validEmail(elmToValidate.value)) {
               elmToValidate.classList.add('invalid')
-              //submitForm = false
+              submitForm = false
             }
             break
         }
         //copy value into the data array object
         arrayItem.value = elmToValidate.value
       })
-      if (submitForm) {
+      if (!submitForm) {
         submitBtnClicked.preventDefault()
       }
       return true
