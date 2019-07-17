@@ -78,7 +78,6 @@
 
 <script>
 import { required, minLength, email } from 'vuelidate/lib/validators'
-
 export default {
   name: 'VueliForm',
   data() {
@@ -103,6 +102,7 @@ export default {
   },
   methods: {
     checkForm() {
+      console.log('x')
       this.$v.$touch()
     }
   }
@@ -110,21 +110,17 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import '@/assets/scss/main.scss';
-
 .contact-form-container {
   background-color: #fff;
   padding: 5px 0;
   margin: 15px 0;
   border-radius: 15px;
 }
-
 .contact-row {
 }
-
 .contact-cell {
   margin: 0 1.5rem;
 }
-
 .invalid {
   border: 1px solid red;
 }

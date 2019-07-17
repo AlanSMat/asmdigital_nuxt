@@ -40,7 +40,7 @@ export default {
   plugins: [
     {
       src: '~/plugins/vuelidate.js',
-      ssr: false
+      ssr: true
     },
     {
       src: '~/plugins/vue-timeago',
