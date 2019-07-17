@@ -48,9 +48,6 @@
               </div>
             </div>
             <div class="contact-row container-flex container-flex__center pb-5">
-              <div data-netlify-recaptcha="true"></div>
-            </div>
-            <div class="contact-row container-flex container-flex__center pb-5">
               <div>
                 <!-- @clickedBtn is a method in the child component -->
                 <g-button title="Submit" @clickedBtn="checkForm($event)" />
