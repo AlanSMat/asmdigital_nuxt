@@ -39,6 +39,10 @@ export default {
    */
   plugins: [
     {
+      src: '~/plugins/Vuelidate.js',
+      ssr: false
+    },
+    {
       src: '~/plugins/vue-timeago',
       ssr: true
     },

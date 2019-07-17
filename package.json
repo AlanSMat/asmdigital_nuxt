@@ -30,7 +30,8 @@
     "sass-loader": "^7.1.0",
     "sugarss": "^2.0.0",
     "vue-content-loader": "^0.2.2",
-    "vue-timeago": "^5.1.2"
+    "vue-timeago": "^5.1.2",
+    "vuelidate": "^0.7.4"
   },
   "devDependencies": {
     "eslint-config-prettier": "^4.1.0",
