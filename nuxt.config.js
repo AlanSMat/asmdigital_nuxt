@@ -39,7 +39,7 @@ export default {
    */
   plugins: [
     {
-      src: '~/plugins/Vuelidate.js',
+      src: '~/plugins/vuelidate.js',
       ssr: false
     },
     {
