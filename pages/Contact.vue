@@ -65,7 +65,7 @@
             <pre>
             {{ $v }}
             </pre>
-            <button type="submit" class="btn btn-primary" @click.prevent="checkForm">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
           </form>
         </div>
       </div>
