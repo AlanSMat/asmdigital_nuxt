@@ -13,7 +13,7 @@
           shared with any other organisation.
         </p>
         <div class="contact-form-container">
-          <form action="/thanks" id="contactForm" name="contact" method="POST" data-netlify="true">
+          <form id="contactForm" name="contact" method="POST" data-netlify="true">
             <div class="contact-row container-flex container-flex__center">
               <div class="contact-cell">
                 <div class="mdl-textfield">
