@@ -68,7 +68,7 @@
             <pre>
             {{ $v }}
             </pre>
-            <button type="submit">Submit</button>
+            <button type="submit" class="btn btn-primary" @click.prevent="checkForm">Submit</button>
           </form>
         </div>
       </div>
@@ -103,7 +103,13 @@ export default {
   },
   methods: {
     checkForm() {
-      this.$v.$touch()
+      this.formTouched = !this.$v.formResponses.$anyDirty
+      this.errors = this.$v.formResponses.$anyError
+      this.uiState = 'submit clicked'
+      if (this.errors === false && this.formTouched === false) {
+        //this is where you send the responses
+        this.uiState = 'form submitted'
+      }
     }
   }
 }
