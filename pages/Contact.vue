@@ -1,11 +1,79 @@
 <template>
-  <form @submit.prevent="test">
-    <input type="email" name="email" v-model.trim="$v.email.$model" />
-    <p v-if="!$v.email.required">The email field is required!</p>
-    <p v-if="!$v.email.email">The input must be a proper email!</p>
-    <input type="password" name="password" v-model.trim="$v.password.$model" />
-    <button type="submit">Submit</button>
-  </form>
+  <div>
+    <global-page-title pageTitle="Contact Us"></global-page-title>
+    <div class="footer-col-container">
+      <div class="page-container">
+        <p>
+          We always look forward to hearing from you, for any business enquiries or feedback please
+          fill out the form below or email us and we will get back to you as soon as possible
+        </p>
+
+        <p>
+          We gaurantee that all mail received will be treated as strictly confidential and your details will never be
+          shared with any other organisation.
+        </p>
+        <div class="contact-form-container">
+          <form
+            id="contactForm"
+            name="contact"
+            @submit="checkForm"
+            method="POST"
+            data-netlify="true"
+          >
+            <div class="contact-row container-flex container-flex__center">
+              <div class="contact-cell">
+                <div class="mdl-textfield">
+                  <input
+                    type="text"
+                    name="contactName"
+                    v-model.trim="$v.contactName.$model"
+                    class="mdl-textfield__input"
+                  />
+                  <p v-if="!$v.contactName.required">The contact name field is required!</p>
+                </div>
+              </div>
+              <div class="contact-cell">
+                <div class="mdl-textfield">
+                  <input
+                    type="email"
+                    name="email"
+                    v-model.trim="$v.contactEmail.$model"
+                    class="mdl-textfield__input"
+                  />
+                  <p v-if="!$v.contactEmail.required">The email field is required!</p>
+                  <p v-if="!$v.contactEmail.email">The input must be a proper email!</p>
+                </div>
+              </div>
+            </div>
+            <div class="contact-row container-flex container-flex__center">
+              <div class="contact-cell">
+                <div class="mdl-textfield">
+                  <input
+                    type="text"
+                    name="contactPhone"
+                    v-model.trim="$v.contactPhone.$model"
+                    class="mdl-textfield__input"
+                  />
+                  <p v-if="!$v.contactPhone.required">The contact phone field is required!</p>
+                </div>
+              </div>
+              <div class="contact-cell">
+                <div class="mdl-textfield">
+                  <input type="text" name="contactSubject" class="mdl-textfield__input" />
+                </div>
+              </div>
+            </div>
+            <div class="contact-cell"></div>
+
+            <pre>
+            {{ $v }}
+            </pre>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -15,51 +83,49 @@ export default {
   name: 'VueliForm',
   data() {
     return {
-      email: '',
-      password: ''
+      contactName: '',
+      contactEmail: '',
+      contactPhone: ''
     }
   },
   validations: {
-    email: {
+    contactName: {
+      required,
+      minLength: minLength(4)
+    },
+    contactEmail: {
       required,
       email
     },
-    password: {
-      required,
-      minLength: minLength(6)
+    contactPhone: {
+      required
     }
   },
   methods: {
-    test() {
+    checkForm() {
       this.$v.$touch()
     }
   }
 }
 </script>
-<style scoped>
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 400;
-  font-size: 100px;
-  color: #2e495e;
-  letter-spacing: 1px;
-  font-size: 6em;
-}
-.green {
-  color: #00c48d;
+<style lang="scss" scoped>
+@import '@/assets/scss/main.scss';
+
+.contact-form-container {
+  background-color: #fff;
+  padding: 5px 0;
+  margin: 15px 0;
+  border-radius: 15px;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 3em;
-  color: #2e495e;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+.contact-row {
 }
 
-.links {
-  padding-top: 15px;
+.contact-cell {
+  margin: 0 1.5rem;
+}
+
+.invalid {
+  border: 1px solid red;
 }
 </style>
