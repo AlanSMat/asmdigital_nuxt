@@ -13,8 +13,7 @@
           shared with any other organisation.
         </p>
         <div class="contact-form-container">
-          <form id="contactForm" action="/" @submit="checkForm" method="POST" data-netlify="true">
-            <input type="hidden" name="form-name" value="contact" />
+          <form id="contactForm" name="contact" method="POST" data-netlify="true">
             <div class="contact-row container-flex container-flex__center">
               <div class="contact-cell">
                 <g-input-text name="contactName" id="contactName" LabelName="Your Name" />
