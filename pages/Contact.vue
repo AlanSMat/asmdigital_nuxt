@@ -65,7 +65,7 @@
             <pre>
             {{ $v }}
             </pre>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" @click.prevent="checkForm">Submit</button>
           </form>
         </div>
       </div>
@@ -110,7 +110,7 @@ export default {
       this.uiState = 'submit clicked'
       if (this.errors === false && this.formTouched === false) {
         //console.log(event.preventDefault)
-        document.getElementById('contactForm').submit()
+        //document.getElementById('contactForm').submit()
       }
     }
   }
