@@ -37,20 +37,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    {
-      src: '~/plugins/vuelidate.js',
-      ssr: false
-    },
-    {
-      src: '~/plugins/vue-timeago',
-      ssr: true
-    },
-    {
-      src: '~/plugins/global-components',
-      ssr: true
-    }
-  ],
+  plugins: ['~/plugins/vuelidate.js'],
   /*
    ** Nuxt.js modules
    */
