@@ -13,13 +13,7 @@
           shared with any other organisation.
         </p>
         <div class="contact-form-container">
-          <form
-            id="contactForm"
-            name="contact"
-            @submit="checkForm"
-            method="POST"
-            data-netlify="true"
-          >
+          <form action="/thanks" id="contactForm" name="contact" method="POST" data-netlify="true">
             <div class="contact-row container-flex container-flex__center">
               <div class="contact-cell">
                 <div class="mdl-textfield">
@@ -27,6 +21,7 @@
                     type="text"
                     name="contactName"
                     v-model.trim="$v.contactName.$model"
+                    :class="status($v.contactName)"
                     class="mdl-textfield__input"
                   />
                   <p v-if="!$v.contactName.required">The contact name field is required!</p>
@@ -38,6 +33,7 @@
                     type="email"
                     name="email"
                     v-model.trim="$v.contactEmail.$model"
+                    :class="status($v.contactEmail)"
                     class="mdl-textfield__input"
                   />
                   <p v-if="!$v.contactEmail.required">The email field is required!</p>
@@ -52,6 +48,7 @@
                     type="text"
                     name="contactPhone"
                     v-model.trim="$v.contactPhone.$model"
+                    :class="status($v.contactPhone)"
                     class="mdl-textfield__input"
                   />
                   <p v-if="!$v.contactPhone.required">The contact phone field is required!</p>
@@ -68,7 +65,7 @@
             <pre>
             {{ $v }}
             </pre>
-            <button type="submit">Submit</button>
+            <button type="submit" class="btn btn-primary" @click.prevent="checkForm">Submit</button>
           </form>
         </div>
       </div>
@@ -77,7 +74,7 @@
 </template>
 
 <script>
-import { required, minLength, email } from 'vuelidate/lib/validators'
+import { required, minLength, email, text } from 'vuelidate/lib/validators'
 export default {
   name: 'VueliForm',
   data() {
@@ -101,15 +98,52 @@ export default {
     }
   },
   methods: {
+    status(validation) {
+      return {
+        error: validation.$error,
+        dirty: validation.$dirty
+      }
+    },
     checkForm() {
-      console.log('x')
-      this.$v.$touch()
+      this.formTouched = !this.$v.$anyDirty
+      this.errors = this.$v.$anyError
+      this.uiState = 'submit clicked'
+      if (this.errors === false && this.formTouched === false) {
+        //console.log(event.preventDefault)
+        document.getElementById('contactForm').submit()
+      }
     }
   }
 }
 </script>
 <style lang="scss" scoped>
 @import '@/assets/scss/main.scss';
+
+input {
+  border: 1px solid silver;
+  border-radius: 4px;
+  background: white;
+  padding: 5px 10px;
+}
+
+.dirty {
+  border-color: #5a5;
+  background: #efe;
+}
+
+.dirty:focus {
+  outline-color: #8e8;
+}
+
+.error {
+  border-color: red;
+  background: #fdd;
+}
+
+.error:focus {
+  outline-color: #f99;
+}
+
 .contact-form-container {
   background-color: #fff;
   padding: 5px 0;

@@ -51,13 +51,13 @@
               </li>
               <li>
                 <a href="#">
-                  <i class="fa fa-hospital-o"></i>Health
+                  <i class="fa fa-hospital"></i>Health
                 </a>
                 <span>(5)</span>
               </li>
               <li>
                 <a href="#">
-                  <i class="fa fa-wheelchair-alt"></i>wellness
+                  <i class="fa fa-wheelchair"></i>wellness
                 </a>
                 <span>(8)</span>
               </li>
