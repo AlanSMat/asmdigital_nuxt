@@ -16,11 +16,11 @@
           <form
             id="contactForm"
             name="contact"
-            @submit="checkForm"
             method="POST"
+            Content-Type="application/x-www-form-urlencoded"
             data-netlify="true"
           >
-            <div class="contact-row container-flex container-flex__center">
+            <div class="contact-row container-flex container-flex__center pt-4">
               <div class="contact-cell">
                 <div class="mdl-textfield">
                   <input
@@ -29,8 +29,8 @@
                     v-model.trim="$v.contactName.$model"
                     :class="status($v.contactName)"
                     class="mdl-textfield__input"
+                    placeholder="Your Name"
                   />
-                  <p v-if="!$v.contactName.required">The contact name field is required!</p>
                 </div>
               </div>
               <div class="contact-cell">
@@ -41,13 +41,12 @@
                     v-model.trim="$v.contactEmail.$model"
                     :class="status($v.contactEmail)"
                     class="mdl-textfield__input"
+                    placeholder="Your Email"
                   />
-                  <p v-if="!$v.contactEmail.required">The email field is required!</p>
-                  <p v-if="!$v.contactEmail.email">The input must be a proper email!</p>
                 </div>
               </div>
             </div>
-            <div class="contact-row container-flex container-flex__center">
+            <div class="contact-row container-flex container-flex__center pt-4">
               <div class="contact-cell">
                 <div class="mdl-textfield">
                   <input
@@ -56,22 +55,43 @@
                     v-model.trim="$v.contactPhone.$model"
                     :class="status($v.contactPhone)"
                     class="mdl-textfield__input"
+                    placeholder="Your Phone"
                   />
-                  <p v-if="!$v.contactPhone.required">The contact phone field is required!</p>
                 </div>
               </div>
               <div class="contact-cell">
                 <div class="mdl-textfield">
-                  <input type="text" name="contactSubject" class="mdl-textfield__input" />
+                  <input
+                    type="text"
+                    name="contactSubject"
+                    placeholder="Your Subject"
+                    class="mdl-textfield__input"
+                  />
                 </div>
               </div>
             </div>
-            <div class="contact-cell"></div>
-
-            <pre>
-            {{ $v }}
-            </pre>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="contact-row container-flex container-flex__center pt-4">
+              <div class="mdl-textfield">
+                <textarea
+                  rows="8"
+                  cols="58"
+                  name="contactMessage"
+                  class="mdl-textfield__input"
+                  id="contactMessage"
+                  placeholder="Your Message"
+                ></textarea>
+              </div>
+            </div>
+            <div class="contact-row container-flex container-flex__center pb-5">
+              <div class="mdl-textfield">
+                <div data-netlify-recaptcha="true"></div>
+              </div>
+            </div>
+            <div class="contact-row container-flex container-flex__center pb-5">
+              <div class="contact-cell">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
           </form>
         </div>
       </div>
@@ -169,5 +189,8 @@ input {
 }
 .invalid {
   border: 1px solid red;
+}
+input[type='text'] {
+  padding: 5px;
 }
 </style>
