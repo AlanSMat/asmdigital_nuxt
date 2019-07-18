@@ -13,7 +13,13 @@
           shared with any other organisation.
         </p>
         <div class="contact-form-container">
-          <form id="contactForm" name="contact" method="POST" data-netlify="true">
+          <form
+            id="contactForm"
+            name="contact"
+            @submit="checkForm"
+            method="POST"
+            data-netlify="true"
+          >
             <div class="contact-row container-flex container-flex__center">
               <div class="contact-cell">
                 <div class="mdl-textfield">
@@ -105,19 +111,19 @@ export default {
       }
     },
     checkForm() {
-      this.formTouched = !this.$v.$anyDirty
-      this.errors = this.$v.$anyError
+      //this.formTouched = !this.$v.$anyDirty
+      //this.errors = this.$v.$anyError
       // if any error is true && anydirty is true stop
       // if any error is true && anydirty is false stop
       // if any error is false && anydirty is true go
-      console.log(this.errors + ' - ' + this.formTouched)
-      if (
-        (this.errors && this.formTouched) ||
-        (!this.errors && this.formTouched)
-      ) {
-        console.log('x')
-        event.preventDefault()
-      }
+      //console.log(this.errors + ' - ' + this.formTouched)
+      // if (
+      //   (this.errors && this.formTouched) ||
+      //   (!this.errors && this.formTouched)
+      // ) {
+      //   console.log('x')
+      //   event.preventDefault()
+      // }
     }
   }
 }
