@@ -2,7 +2,7 @@
   <div>
     <global-page-title pageTitle="Contact Us"></global-page-title>
     <div class="footer-col-container">
-      <div class="page-container">
+      <div class="content-wrapper br-15">
         <p>
           We always look forward to hearing from you, for any business enquiries or feedback please
           fill out the form below or email us and we will get back to you as soon as possible
@@ -154,6 +154,12 @@ export default {
 
 .captcha-container {
   width: 30rem;
+}
+
+.content-wrapper {
+  padding: 2.5rem 2.5rem 0.8rem 2.5rem;
+  margin: 0 3.5rem 3.5rem 3.5rem;
+  box-shadow: 0 0.2rem 0.4rem #ccc;
 }
 
 input {

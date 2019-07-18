@@ -72,6 +72,7 @@ export default {
 .snippet-flex-container {
   display: flex;
   background-color: #fff;
+  box-shadow: 0 0.2rem 0.4rem #ccc;
 }
 .snippet-image-container {
   width: 25%;

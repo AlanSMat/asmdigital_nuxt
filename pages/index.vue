@@ -5,7 +5,8 @@
       <div class="content-wrapper br-15">
         <div class="paragraph-flex">
           <div class="img-container">
-            <g-img src="laptop.jpg" width="240" alt="laptop" />
+            <img src="~assets/imgs/laptop.jpg" width="240" alt="laptop" class="home-img" />
+            <!-- <g-img src="laptop.jpg" width="240" alt="laptop" /> -->
           </div>
           <div>
             <div class="paragraph-heading">Passionate about what we do</div>
@@ -28,7 +29,8 @@
             </p>
           </div>
           <div>
-            <g-img src="meeting-desk.jpg" width="260" alt="Meeting desk" />
+            <img src="~assets/imgs/code1.jpg" width="340" alt="laptop" class="home-img" />
+            <!-- <g-img src="meeting-desk.jpg" width="260" alt="Meeting desk" /> -->
           </div>
         </div>
       </div>
@@ -51,6 +53,11 @@ export default {
     justify-content: center;
     padding-bottom: 1.5rem;
   }
+}
+
+.home-img {
+  border-radius: 15px;
+  box-shadow: 0 0.2rem 0.4rem #ccc;
 }
 
 .paragraph-heading {

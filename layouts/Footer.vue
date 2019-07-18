@@ -104,7 +104,7 @@
                 ></textarea>
               </div>
               <div class="footer-form-row">
-                <button class="btn-contact">Submit</button>
+                <button class="btn-footer-form">Submit</button>
               </div>
             </form>
           </div>
@@ -128,5 +128,20 @@ export default {
 
 .footer-input-field {
   color: $color-grey-light;
+}
+
+.btn-footer-form {
+  background-color: $color-blue-primary;
+  color: $color-grey-light;
+  border: 1px solid $color-blue-primary;
+  padding: 1rem 1rem;
+  width: 100%;
+}
+.btn-footer-form:hover {
+  background-color: #ccc;
+  color: $color-grey-dark;
+  padding: 1rem 1rem;
+  border: 1px solid $color-grey-medium;
+  cursor: pointer;
 }
 </style>
