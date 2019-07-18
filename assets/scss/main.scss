@@ -185,23 +185,6 @@ img[class] {
   overflow: hidden;
 }
 
-.page-container {
-  width: 80%;
-  margin: auto;
-  padding-bottom: 100px;
-}
-
-.paragraph-flex {
-  display: flex;
-  flex-flow: flex-wrap;
-  align-items: flex-start;
-}
-
-.paragraph-heading {
-  font-family: 'Dosis', sans-serif;
-  font-size: 2rem;
-}
-
 //********************** template styles *************************
 .layer-wrapper {
   position: relative;
@@ -209,13 +192,22 @@ img[class] {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
+
+.content-wrapper {
+  background-color: #fff;
+  border: 1px solid $color-grey-light;
+  position: relative;
+}
+
 .card {
   border: 1px solid #f0f0f0;
   padding: 15px;
+  border-radius: 15px;
   align-self: flex-start;
   background-color: #fff;
   margin: 0 2.5rem 5.5rem 2.5rem;
   box-shadow: 0 0.3rem 0.3rem #ccc;
+  height: 20rem;
 }
 .row {
   display: flex;

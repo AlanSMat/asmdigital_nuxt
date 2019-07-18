@@ -83,12 +83,6 @@ h2 {
   margin-bottom: 10px;
 }
 
-.content-wrapper {
-  background-color: #fff;
-  border: 1px solid $color-grey-light;
-  position: relative;
-}
-
 .text-wrapper {
   padding: 20px;
 }

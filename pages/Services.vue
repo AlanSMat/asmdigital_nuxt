@@ -8,16 +8,16 @@
           <div class="service-card service-card-2">
             <div class="tbl-cell">
               <div class="service-icon">
-                <i class="ti-desktop text-primary"></i>
+                <i class="ti-mobile text-primary"></i>
               </div>
             </div>
             <div class="tbl-cell">
               <div class="service-heading">Responsive Design</div>
               <div class="service-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
-                <a href="#" class="link-icon">
+                <p>Over 60% of vistor's on the web today use mobile devices. With this in mind, we focus on building website's that look great on any device.</p>
+                <!-- <a href="#" class="link-icon">
                   <span>&nbsp;</span>
-                </a>
+                </a>-->
               </div>
             </div>
           </div>
@@ -33,7 +33,7 @@
             <div class="tbl-cell">
               <div class="service-heading">Web Design</div>
               <div class="service-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntd tempor incididunt</p>
+                <p>Full website design and development services at realistic prices.</p>
                 <a href="#" class="link-icon">
                   <span>&nbsp;</span>
                 </a>
@@ -54,9 +54,9 @@
             <div class="tbl-cell">
               <div class="service-heading">Content Marketing</div>
               <div class="service-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+                <p>Strategic marketing services providing a comprehensive guideline on what works best for your business.</p>
                 <a href="#" class="link-icon">
-                  <span>&nbsp;</span>
+                  <!-- <span>&nbsp;</span> -->
                 </a>
               </div>
             </div>
@@ -68,14 +68,34 @@
             <div class="tbl-cell">
               <div class="service-icon">
                 <div class="service-icon">
-                  <i class="ti-ruler-pencil text-warning"></i>
+                  <i class="ti-shopping-cart text-warning"></i>
                 </div>
               </div>
             </div>
             <div class="tbl-cell">
-              <div class="service-heading">Easy to Customize</div>
+              <div class="service-heading">E-Commerce Solutions</div>
               <div class="service-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+                <p>E-Commerce solutions, providing secure services with a strong focus on conversion optimisation</p>
+                <!-- <a href="#" class="link-icon">
+                  <span>&nbsp;</span>
+                </a>-->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="service-card service-card-2">
+            <div class="tbl-cell">
+              <div class="service-icon">
+                <i class="fab fa-wordpress fa-3x text-medium"></i>
+                <!-- <i class="ti-mobile text-secondary"></i> -->
+              </div>
+            </div>
+            <div class="tbl-cell">
+              <div class="service-heading">Wordpress CMS</div>
+              <div class="service-body">
+                <p>Update your own content, without the added cost of a professional to do it for you.</p>
                 <a href="#" class="link-icon">
                   <span>&nbsp;</span>
                 </a>
@@ -88,32 +108,13 @@
           <div class="service-card service-card-2">
             <div class="tbl-cell">
               <div class="service-icon">
-                <i class="ti-desktop text-primary"></i>
+                <i class="ti-pencil-alt text-danger"></i>
               </div>
             </div>
             <div class="tbl-cell">
-              <div class="service-heading">Responsive Design</div>
+              <div class="service-heading">Clean Code</div>
               <div class="service-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
-                <a href="#" class="link-icon">
-                  <span>&nbsp;</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="service-card service-card-2">
-            <div class="tbl-cell">
-              <div class="service-icon">
-                <i class="ti-desktop text-primary"></i>
-              </div>
-            </div>
-            <div class="tbl-cell">
-              <div class="service-heading">Responsive Design</div>
-              <div class="service-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+                <p>Quality front-end and back-end web development, using industry standard best practices.</p>
                 <a href="#" class="link-icon">
                   <span>&nbsp;</span>
                 </a>
@@ -133,4 +134,29 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/assets/scss/main.scss';
+.text-warning {
+  color: #ffc107 !important;
+}
+.text-primary {
+  color: #007bff !important;
+}
+.text-success {
+  color: #28a745 !important;
+}
+.text-info {
+  color: #17a2b8 !important;
+}
+.text-muted {
+  color: #6c757d !important;
+}
+.text-secondary {
+  color: #c12ad4 !important;
+}
+.text-danger {
+  color: #dc3545 !important;
+}
+.text-medium {
+  color: $color-grey-medium;
+}
 </style>
