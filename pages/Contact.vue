@@ -16,6 +16,7 @@
           <form
             id="contactForm"
             name="contact"
+            action="/thanks/"
             method="POST"
             Content-Type="application/x-www-form-urlencoded"
             data-netlify="true"
