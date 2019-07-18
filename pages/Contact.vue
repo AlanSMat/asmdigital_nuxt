@@ -83,7 +83,7 @@
               </div>
             </div>
             <div class="contact-row container-flex container-flex__center pb-5">
-              <div class="mdl-textfield">
+              <div class="mdl-textfield captcha-container">
                 <div data-netlify-recaptcha="true"></div>
               </div>
             </div>
@@ -150,6 +150,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import '@/assets/scss/main.scss';
+
+.captcha-container {
+  width: 30rem;
+}
 
 input {
   border: 1px solid silver;
