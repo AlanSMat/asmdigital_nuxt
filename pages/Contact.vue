@@ -65,7 +65,7 @@
             <pre>
             {{ $v }}
             </pre>
-            <button type="submit" class="btn btn-primary" @click.prevent="checkForm">Submit</button>
+            <button type="submit" class="btn btn-primary" @click="checkForm">Submit</button>
           </form>
         </div>
       </div>
@@ -107,10 +107,16 @@ export default {
     checkForm() {
       this.formTouched = !this.$v.$anyDirty
       this.errors = this.$v.$anyError
-      this.uiState = 'submit clicked'
-      if (this.errors === false && this.formTouched === false) {
-        //console.log(event.preventDefault)
-        //document.getElementById('contactForm').submit()
+      // if any error is true && anydirty is true stop
+      // if any error is true && anydirty is false stop
+      // if any error is false && anydirty is true go
+      console.log(this.errors + ' - ' + this.formTouched)
+      if (
+        (this.errors && this.formTouched) ||
+        (!this.errors && this.formTouched)
+      ) {
+        console.log('x')
+        event.preventDefault()
       }
     }
   }
