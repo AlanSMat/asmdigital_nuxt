@@ -37,7 +37,7 @@
                 <div class="mdl-textfield">
                   <input
                     type="email"
-                    name="email"
+                    name="contactEmail"
                     v-model.trim="$v.contactEmail.$model"
                     :class="status($v.contactEmail)"
                     class="mdl-textfield__input"
@@ -122,7 +122,7 @@ export default {
       //   (!this.errors && this.formTouched)
       // ) {
       //   console.log('x')
-      //   event.preventDefault()
+      //event.preventDefault()
       // }
     }
   }
