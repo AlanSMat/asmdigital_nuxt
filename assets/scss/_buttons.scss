@@ -82,6 +82,9 @@
 .btn-primary {
   background-color: $color-primary;
   border-color: $color-primary;
+  &:hover {
+    transform: translateY(-3px);
+  }
 }
 
 .btn-secondary {

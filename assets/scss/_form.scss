@@ -398,41 +398,41 @@ select.form-control:not([size]):not([multiple]) {
   box-shadow: inherit;
 }
 
-.note-editor,
-.note-popover.popover {
-  border: 1px solid #ebedf2;
-  .note-toolbar {
-    background-color: #f8f8f8;
-    padding: 10px;
+// .note-editor,
+// .note-popover.popover {
+//   border: 1px solid #ebedf2;
+//   .note-toolbar {
+//     background-color: #f8f8f8;
+//     padding: 10px;
 
-    .btn,
-    .btn.btn-light {
-      color: $color5;
-      background: white;
-      border-color: #ebedf2;
+//     .btn,
+//     .btn.btn-light {
+//       color: $color5;
+//       background: white;
+//       border-color: #ebedf2;
 
-      i {
-        color: #6f727d;
-      }
-    }
-  }
+//       i {
+//         color: #6f727d;
+//       }
+//     }
+//   }
 
-  .note-btn-group {
-    background-color: #f8f8f8;
+//   .note-btn-group {
+//     background-color: #f8f8f8;
 
-    .btn,
-    .btn.btn-light {
-      color: $color5;
-      background: white;
-      border-color: #ebedf2;
+//     .btn,
+//     .btn.btn-light {
+//       color: $color5;
+//       background: white;
+//       border-color: #ebedf2;
 
-      i {
-        color: #6f727d;
-      }
-    }
-  }
+//       i {
+//         color: #6f727d;
+//       }
+//     }
+//   }
 
-  .note-editable {
-    padding: 40px 30px !important;
-  }
-}
+//   .note-editable {
+//     padding: 40px 30px !important;
+//   }
+// }

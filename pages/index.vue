@@ -71,7 +71,7 @@ export default {
 }
 
 .content-wrapper {
-  padding: 1.5rem 1.5rem 0.8rem 1.5rem;
+  padding: 2.5rem 2.5rem 1.8rem 2.5rem;
   margin: 0 3.5rem 3.5rem 3.5rem;
   box-shadow: 0 0.2rem 0.4rem #ccc;
 }

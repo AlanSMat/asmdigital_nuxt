@@ -1,16 +1,21 @@
 <template>
   <div>
-    <div class="layer-wrapper" id="app">
-      <div class="display-flex">
-        <div class="pf-card" v-bind:key="listItem.id" v-for="listItem in portfolio">
-          <div class="pf-card__body">
-            <img :src="listItem.img" width="220" alt="Project" class="object-fit_fill" />
-            <a :href="listItem.href" class="btn-light">
-              <div class="pf-caption">
-                <i class="fas fa-eye"></i>
-                {{ listItem.title }}
-              </div>
-            </a>
+    <div class="loader" v-if="loading">
+      <div class="loading"></div>
+    </div>
+    <div v-if="!loading">
+      <div class="layer-wrapper" id="app">
+        <div class="display-flex">
+          <div class="pf-card" v-bind:key="listItem.id" v-for="listItem in portfolio">
+            <div class="pf-card__body">
+              <img :src="listItem.img" width="220" alt="Project" class="object-fit_fill" />
+              <a :href="listItem.href" class="btn-light">
+                <div class="pf-caption">
+                  <i class="fas fa-eye"></i>
+                  {{ listItem.title }}
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -21,10 +26,25 @@
 <script>
 export default {
   props: ['portfolio'],
-  name: 'Portfolio'
+  name: 'Portfolio',
+  data() {
+    return {
+      loading: true
+    }
+  },
+  mounted() {
+    this.loading = false
+    console.log(this.loading)
+  },
+  beforeCreate() {
+    this.loading = true
+    console.log(this.loading)
+  }
 }
 </script>
 <style lang="scss" scope>
+@import '@/assets/scss/_loader.scss';
+
 .pf-card {
   border: 1px solid #f0f0f0;
   align-self: flex-start;
