@@ -29,16 +29,8 @@ export default {
   name: 'Portfolio',
   data() {
     return {
-      loading: true
+      loading: false
     }
-  },
-  mounted() {
-    this.loading = false
-    console.log(this.loading)
-  },
-  beforeCreate() {
-    this.loading = true
-    console.log(this.loading)
   }
 }
 </script>
