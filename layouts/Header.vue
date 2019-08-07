@@ -39,7 +39,7 @@
             <nuxt-link to="/">Home</nuxt-link>
             <nuxt-link to="/services">Services</nuxt-link>
             <nuxt-link to="/portfolio">Portfolio</nuxt-link>
-            <nuxt-link to="https://asmdigital.com.au/dist/site/contact/">Contact</nuxt-link>
+            <nuxt-link to="/contact">Contact</nuxt-link>
           </div>
         </div>
       </div>
