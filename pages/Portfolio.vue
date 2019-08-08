@@ -48,6 +48,12 @@ export default {
           title: 'Coopers Store',
           img: require('@/assets/imgs/portfolio/coopersstore.png'),
           href: 'https://www.coopersstore.com.au/'
+        },
+        {
+          id: 6,
+          title: 'Purrfect Ragdolls',
+          img: require('@/assets/imgs/portfolio/ragdolls.jpg'),
+          href: 'https://asmdigital.com.au/wp/purrfect-ragdolls/'
         }
       ]
     }
