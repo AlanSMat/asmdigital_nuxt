@@ -4,7 +4,7 @@
       <div class="loading"></div>
     </div>
     <div v-if="!loading">
-      <div class="layer-wrapper">
+      <div class="layer-wrapper mb-5">
         <div class="content-wrapper br-15">
           <div class="image-wrapper">
             <img :src="blog.imageUrl" v-if="blog.imageUrl" width="100%" class="brt-15" alt />
