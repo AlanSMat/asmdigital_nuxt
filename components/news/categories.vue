@@ -3,7 +3,7 @@
     <span
       :key="category.id"
       v-for="category in categories"
-      class="badge badge-light badge-pill badge-sm m-1"
+      class="badge badge-light badge-pill badge-sm m-2"
     >{{ category.name }}</span>
   </div>
 </template>

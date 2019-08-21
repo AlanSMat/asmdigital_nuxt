@@ -39,6 +39,7 @@
             <nuxt-link to="/">Home</nuxt-link>
             <nuxt-link to="/services">Services</nuxt-link>
             <nuxt-link to="/portfolio">Portfolio</nuxt-link>
+            <nuxt-link to="/news">News</nuxt-link>
             <nuxt-link to="/contact">Contact</nuxt-link>
           </div>
         </div>

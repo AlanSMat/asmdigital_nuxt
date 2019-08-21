@@ -88,10 +88,12 @@ export default {
 .excerpt {
   margin-bottom: 10px;
 }
+
 .row {
   background-color: #fff;
   border-radius: 15px;
 }
+
 .sidebar {
   padding: 10px;
   margin: 0 0 10px 0;
@@ -100,13 +102,16 @@ export default {
 .list-img img:hover {
   opacity: 8;
 }
+
 .img {
   border-radius: 5px;
   width: 20%;
 }
+
 .blog-content {
   padding: 10px;
 }
+
 .link-icon {
   display: inline-block;
   font-size: 14px;
@@ -132,6 +137,7 @@ export default {
   .snippet-image-container {
     width: 90%;
     margin: 1.5rem;
+    padding: 1rem 1rem 0 1rem;
     align-self: center;
   }
   .snippet-content-container {
