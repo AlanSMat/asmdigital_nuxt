@@ -9,8 +9,8 @@
         <div class="blog-left-container">
           <blog-snippet :key="blog.arrIndex" :blog="blog" v-for="blog in blogs" />
         </div>
-        <div class="blog-right-container br-5">
-          <div class="sidebar br-15">
+        <div class="blog-right-container">
+          <div class="sidebar br-15 pl-5 pr-5 pb-5">
             <global-page-sub-title pageSubTitle="Recent Posts" />
             <p
               :key="blog.arrIndex"
@@ -162,6 +162,10 @@ export default {
 
 .sidebar-blog-headings {
   font-family: 'Dosis', 'Poppins', sans-serif;
+}
+
+.sidebar-blog-headings {
+  padding-bottom: 0.8rem;
 }
 
 @include respond('tab-land') {

@@ -1,9 +1,9 @@
 <template>
   <div class="snippet-flex-container br-10 mb-5">
-    <div class="snippet-image-container ml-4 mt-4">
+    <div class="snippet-image-container ml-8 mt-8">
       <img :src="blog.imageUrl" v-if="blog.imageUrl" :alt="blog.title" class="snippet-image br-5" />
     </div>
-    <div class="snippet-content-container ml-4 mt-3 mb-4">
+    <div class="snippet-content-container">
       <h4 class="title-blog">
         <nuxt-link :to="`/news/${blog.arrIndex}`">{{ blog.title }}</nuxt-link>
       </h4>
@@ -11,7 +11,7 @@
         <credits class="post-credits" :postedDate="blog.postedDate" :from="blog.from"></credits>
       </div>
       <p class="description" v-html="blog.excerpt"></p>
-      <categories :categories="categories" class="pt-2" />
+      <categories :categories="categories" class="pt-3" />
       <nuxt-link :to="`/news/${blog.arrIndex}`" class="link-icon mt-3 ml-2">
         <span>View More</span>
         <i class="ti-angle-double-right pt-1"></i>
@@ -74,11 +74,15 @@ export default {
   background-color: #fff;
   box-shadow: 0 0.2rem 0.4rem #ccc;
 }
+
 .snippet-image-container {
-  width: 25%;
+  width: 30%;
+  padding: 2rem 1rem 0 2rem;
 }
+
 .snippet-content-container {
-  width: 65%;
+  width: 70%;
+  padding: 1.3rem 2rem 1rem 1rem;
 }
 
 .excerpt {

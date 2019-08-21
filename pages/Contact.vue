@@ -90,7 +90,7 @@
             </div>
             <div class="contact-row container-flex container-flex__center pb-5">
               <div class="contact-cell">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <g-button title="Submit"></g-button>
               </div>
             </div>
           </form>

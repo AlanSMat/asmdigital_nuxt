@@ -19,10 +19,12 @@
             :postedDate="blog.postedDate"
             :from="blog.from"
           ></credits>
-        </div>
-        <!-- buttons -->
-        <div id="single-blog-button-container">
-          <g-button title="Back" route="/news" />
+          <div id="single-blog-button-container">
+            <nuxt-link :to="`/news`" class="link-icon mt-3 ml-2">
+              <i class="ti-angle-double-left pt-1"></i>
+              <span>Back</span>
+            </nuxt-link>
+          </div>
         </div>
       </div>
     </div>
@@ -88,7 +90,7 @@ h2 {
 }
 
 #single-blog-button-container {
-  margin: 1rem 0;
+  margin: 1rem 1rem;
 }
 #single-blog {
   max-width: 960px;

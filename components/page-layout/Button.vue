@@ -1,15 +1,15 @@
 <template>
   <div>
     <div v-if="route">
-      <nuxt-link to="/news">
-        <button class="btn btn-outline btn-default btn-pill btn-outline-1x m-1">{{title}}</button>
+      <nuxt-link to="/route">
+        <button class="btn btn-outline btn-default btn-outline-1x m-1">{{title}}</button>
       </nuxt-link>
     </div>
     <div v-if="!route">
       <button
         id="id"
         @click="clickedBtn"
-        class="btn btn-outline btn-default btn-pill btn-outline-1x m-1"
+        class="btn btn-outline btn-default btn-outline-1x m-1"
       >{{title}}</button>
     </div>
   </div>

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="categories.length !== 0" class="pb-2">
+  <div v-if="categories.length !== 0">
     <span
       :key="category.id"
       v-for="category in categories"
