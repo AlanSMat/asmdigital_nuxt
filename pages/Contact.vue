@@ -130,21 +130,6 @@ export default {
         error: validation.$error,
         dirty: validation.$dirty
       }
-    },
-    checkForm() {
-      //this.formTouched = !this.$v.$anyDirty
-      //this.errors = this.$v.$anyError
-      // if any error is true && anydirty is true stop
-      // if any error is true && anydirty is false stop
-      // if any error is false && anydirty is true go
-      //console.log(this.errors + ' - ' + this.formTouched)
-      // if (
-      //   (this.errors && this.formTouched) ||
-      //   (!this.errors && this.formTouched)
-      // ) {
-      //   console.log('x')
-      //event.preventDefault()
-      // }
     }
   }
 }
@@ -160,6 +145,13 @@ export default {
   padding: 2.5rem 2.5rem 0.8rem 2.5rem;
   margin: 0 3.5rem 3.5rem 3.5rem;
   box-shadow: 0 0.2rem 0.4rem #ccc;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 4.5rem;
+
+  @include respond(phone) {
+    width: 90%;
+  }
 }
 
 input {

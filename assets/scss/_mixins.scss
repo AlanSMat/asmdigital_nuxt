@@ -28,6 +28,13 @@
   border-left: $borderWidth solid $color-grey-light;
 }
 
+/*
+  USAGE
+  @include respond(phone) {
+    width: 90%;
+  }
+*/
+
 @mixin respond($breakpoint) {
   @if $breakpoint == phone {
     @media only screen and (max-width: 37.5em) {

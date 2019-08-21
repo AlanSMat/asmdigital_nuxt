@@ -10,7 +10,7 @@
           <blog-snippet :key="blog.arrIndex" :blog="blog" v-for="blog in blogs" />
         </div>
         <div class="blog-right-container">
-          <div class="sidebar br-15 pl-5 pr-5 pb-5">
+          <div class="sidebar br-15">
             <global-page-sub-title pageSubTitle="Recent Posts" />
             <p
               :key="blog.arrIndex"
@@ -158,6 +158,7 @@ export default {
 .sidebar {
   background-color: #fff;
   box-shadow: 0 0.2rem 0.4rem #ccc;
+  padding: 2.5rem 2rem 2rem 2rem;
 }
 
 .sidebar-blog-headings {
