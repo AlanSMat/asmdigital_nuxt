@@ -7,7 +7,7 @@
     </div>
     <div v-if="!route">
       <button
-        id="id"
+        :id="id"
         @click="clickedBtn"
         class="btn btn-outline btn-default btn-outline-1x m-1"
       >{{title}}</button>
@@ -34,7 +34,11 @@ export default {
       type: String,
       required: false
     },
-    link: {
+    disabled: {
+      type: Boolean,
+      required: false
+    },
+    disabled: {
       type: Boolean,
       required: false
     }

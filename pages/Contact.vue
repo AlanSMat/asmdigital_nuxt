@@ -90,7 +90,12 @@
             </div>
             <div class="contact-row container-flex container-flex__center pb-5">
               <div class="contact-cell">
-                <g-button title="Submit"></g-button>
+                <g-button
+                  id="buttonId"
+                  :disabled="$v.$invalid"
+                  @clickedBtn="submitForm($event)"
+                  title="Submit"
+                ></g-button>
               </div>
             </div>
           </form>
@@ -106,6 +111,7 @@ export default {
   name: 'VueliForm',
   data() {
     return {
+      buttonId: 'submitButton',
       contactName: '',
       contactEmail: '',
       contactPhone: ''
@@ -125,6 +131,11 @@ export default {
     }
   },
   methods: {
+    submitForm(e) {
+      if (this.$v.$invalid) {
+        e.preventDefault()
+      }
+    },
     status(validation) {
       return {
         error: validation.$error,
