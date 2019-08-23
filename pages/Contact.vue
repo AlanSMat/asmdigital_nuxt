@@ -24,6 +24,7 @@
             <div class="contact-row container-flex container-flex__center pt-4">
               <div class="contact-cell">
                 <div class="mdl-textfield">
+                  <!-- <div class="error-text">required</div> -->
                   <input
                     type="text"
                     name="contactName"
@@ -181,6 +182,14 @@ input {
   outline-color: #8e8;
 }
 
+.error-text {
+  color: red;
+  position: absolute;
+  top: 0px;
+  left: 3px;
+  font-size: 12px;
+}
+
 .error {
   border-color: red;
   background: #fdd;
@@ -196,8 +205,10 @@ input {
   margin: 15px 0;
   border-radius: 15px;
 }
+
 .contact-row {
 }
+
 .contact-cell {
   margin: 0 1.5rem;
 }
